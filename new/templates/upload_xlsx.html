@@ -1,0 +1,39 @@
+<style>
+    .custom-file-input {
+    display: none; /* Hide the default input */
+}
+
+.custom-file-label {
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    background-color: #f8f9fa;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    font-weight: 500;
+    color: #495057;
+}
+
+.custom-file-label:hover {
+    background-color: #e2e6ea;
+    border-color: #dae0e5;
+}
+</style>
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="container mt-4">
+    <h1 class="mb-4">Upload Data</h1>
+
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" id="fileInput" name="files">
+            <label class="custom-file-label" for="fileInput">Choose file</label>
+            <input type="submit" value="Submit" class="btn btn-primary" required name="file">
+        </div>
+        
+    </form>
+    </div>
+</div>
+    {% endblock %}

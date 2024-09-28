@@ -10,7 +10,7 @@ class newform(forms.ModelForm):
         fields = ['name', 'age','gender', 'email', 'country','choices', 'image']
         labels = {'choices': 'Hobbies'}
         widgets = {
-            'gender': forms.RadioSelect,
+            'gender': forms.Select,
             'choices': forms.CheckboxSelectMultiple,
             'country': CountrySelectWidget(),
         }
@@ -24,3 +24,4 @@ class newform(forms.ModelForm):
             country_choices.remove(india_choice)
             country_choices.insert(0, india_choice)
         self.fields['country'].choices = [('', 'Select country')] + country_choices
+        

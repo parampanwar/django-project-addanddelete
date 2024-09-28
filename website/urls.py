@@ -24,8 +24,12 @@ urlpatterns = [
     
     path('admin/', admin.site.urls),
     path('', views.new, name='new'),
+    
     path('users/', views.user_list, name='user_list'),
     path('users/<int:user_id>/edit/', views.edit_user, name='edit_user'),
     path('users/<int:user_id>/delete/', views.delete_user, name='delete_user'),
-
+    path('export_to_excel/' ,export_to_excel,name='export_to_excel'),
+    path('upload-xlsx/', views.upload_xlsx, name='upload_xlsx'),
+    path('venue_pdf/', views.venue_pdf, name='venue_pdf'),
+    path('search', views.search_view, name="search_view"),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

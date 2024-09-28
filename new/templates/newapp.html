@@ -1,13 +1,17 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<section class="contact-us my-1 form-control">
     <form action="{% url 'new' %}" method="post" enctype="multipart/form-data" class="container shadow-lg p-3  bg-white rounded mb-3">
-        <h1>Add User</h1>
         {% csrf_token %}
+        <div class="form-row">
+        <h1>Register User</h1>
+        
         
         {{ form.as_p }}
-        
         <input type="submit" value="Submit" class="btn btn-primary">
         <a href="{% url 'user_list' %}" class="btn btn-primary">View Users</a>
-    </form>
-    {% endblock %}
+        <a href="{% url 'upload_xlsx' %}" class="btn btn-primary">Import Data</a>
+     </form>
+</section>  
+{% endblock %}

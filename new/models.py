@@ -1,5 +1,7 @@
 from django.db import models
 from django_countries.fields import CountryField
+
+
 class Hobby(models.Model):
     name = models.CharField(max_length=100)
     def __str__(self):
@@ -19,4 +21,13 @@ class User(models.Model):
     choices = models.ManyToManyField(Hobby, blank=True)
     def __str__(self):
         return self.name
+    
 
+
+#code for importing file
+class ExcelFile(models.Model):
+    file=models.FileField(upload_to="excel")
+    def __str__(self):
+        return str(self.file)
+    
+    
